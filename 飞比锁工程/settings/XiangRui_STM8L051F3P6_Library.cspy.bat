@@ -10,6 +10,10 @@
 @REM 
 
 
+<<<<<<< HEAD
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0\common\bin\cspybat" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0\stm8\bin\stm8proc.dll" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0\stm8\bin\stm8stlink.dll"  %1 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0\stm8\bin\stm8bat.dll" --backend -B "-p" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.0\stm8\config\ddf\iostm8l151f3.ddf" "-d" "stlink" "--mcuname" "STM8L151F3" 
+=======
+"E:\Embedded Workbench 6.0\common\bin\cspybat" "E:\Embedded Workbench 6.0\stm8\bin\stm8proc.dll" "E:\Embedded Workbench 6.0\stm8\bin\stm8stlink.dll"  %1 --plugin "E:\Embedded Workbench 6.0\stm8\bin\stm8bat.dll" --backend -B "-p" "E:\Embedded Workbench 6.0\stm8\config\ddf\iostm8l151f3.ddf" "-d" "stlink" "--mcuname" "STM8L151F3" 
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 

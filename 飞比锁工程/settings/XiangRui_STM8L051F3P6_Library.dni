@@ -1,5 +1,9 @@
 [DebugChecksum]
+<<<<<<< HEAD
 Checksum=178432258
+=======
+Checksum=-360544740
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -43,8 +47,11 @@ ActionState=1
 [TraceHelper]
 Enabled=0
 ShowSource=1
+<<<<<<< HEAD
 [Breakpoints]
 Count=0
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -52,6 +59,14 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+<<<<<<< HEAD
+=======
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\APP\main.c}.92.11@1" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\APP\usart.c}.85.2@1" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\APP\usart.c}.19.2@1" 0 0 0 0 "" 0 ""
+Count=3
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 [Aliases]
 A0=_ "F:\STM8L051F3P6\EasySTM8L051F3P6开发板光盘资料_161018_V1\2.配套源代码\祥瑞实体电子EasySTM8L051F3开发板_实验1_流水灯控制\STM8L15x-16x-05x-AL31-L_StdPeriph_Lib\src\stm8l15x_clk.c" ""
 A1=_ "F:\STM8L051F3P6\EasySTM8L051F3P6开发板光盘资料_161018_V1\2.配套源代码\祥瑞实体电子EasySTM8L051F3开发板_实验1_流水灯控制\STM8L15x-16x-05x-AL31-L_StdPeriph_Lib\src\stm8l15x_gpio.c" ""

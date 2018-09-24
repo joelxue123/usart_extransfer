@@ -29,7 +29,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm8l15x_it.h"
 #include "global.h"
+<<<<<<< HEAD
 #include "protocol.h"
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 /** @addtogroup STM8L15x_StdPeriph_Template
   * @{
@@ -409,7 +412,11 @@ INTERRUPT_HANDLER(USART1_TX_TIM5_UPD_OVF_TRG_BRK_IRQHandler,27)
 
 extern BFCT_protocol BFCT_protocol_Zigbee;
 
+<<<<<<< HEAD
 extern u16 data3_tc;
+=======
+extern u8 data3_tc;
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
 {
     /* In order to detect unexpected events during development,
@@ -420,7 +427,11 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
 
   if(USART_GetITStatus(USART1,USART_IT_RXNE) == SET)
   {
+<<<<<<< HEAD
 
+=======
+    data3_tc = 0; ////////此为全局变量，需要谨慎使用
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
     Res =   USART_ReceiveData8(USART1);
     
 /******************
@@ -428,10 +439,16 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
 ******************/
     if(1 == BFCT_protocol_Zigbee.receive_enable)
     {		
+<<<<<<< HEAD
           data3_tc = 0; ////////此为全局变量，需要谨慎使用 
         if(0 == BFCT_protocol_Zigbee.receive_len)
         {
             if( protocal_header == Res) { }
+=======
+        if(0 == BFCT_protocol_Zigbee.receive_len)
+        {
+            if(0xA1 == Res) { }
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
             else
             {
                 BFCT_protocol_Zigbee.receive_len = 0;
@@ -442,7 +459,11 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
         }
         else if( 1 == BFCT_protocol_Zigbee.receive_len)
         {
+<<<<<<< HEAD
             if( Res == protocal_header ) { 
+=======
+            if( Res == 0xA1) { 
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 			
 		 BFCT_protocol_Zigbee.receive_len = 0;
                 sum = 0;
@@ -465,6 +486,7 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
         }
 ************************/////  暂时屏蔽
         //else if(BFCT_protocol.receive_len ==  (BFCT_protocol.receive_data[1] + 3))
+<<<<<<< HEAD
 	else if(BFCT_protocol_Zigbee.receive_len > 3 )	
         { 
           data3_tc = 0; ////////此为全局变量，需要谨慎使用
@@ -499,17 +521,51 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
               }
           }
 #endif         
+=======
+	else if(BFCT_protocol_Zigbee.receive_len ==  (BFCT_protocol_Zigbee.receive_data[2]<<8) +BFCT_protocol_Zigbee.receive_data[3] + 3 )	
+        {
+         //   if(0X55 == Res)
+         //   {
+
+              BFCT_protocol_Zigbee.receive_flag = 1;
+            //  BFCT_protocol_Zigbee.receive_enable = 0;               
+              BFCT_protocol_Zigbee.receive_data[BFCT_protocol_Zigbee.receive_len] = Res;
+              BFCT_protocol_Zigbee.receive_len ++;
+              sum = 0;
+
+              return ;
+              
+        //    }
+#if 0
+            else
+            {
+                BFCT_protocol_Zigbee.receive_len = 0;
+                sum = 0;
+                BFCT_protocol_Zigbee.receive_fail =1;
+                return ;
+            }
+#endif 
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
         }
 
           
             BFCT_protocol_Zigbee.receive_data[BFCT_protocol_Zigbee.receive_len] = Res;
+<<<<<<< HEAD
             if(BFCT_protocol_Zigbee.receive_len > 0 && BFCT_protocol_Zigbee.receive_len <  USART_LEN)
+=======
+            if(BFCT_protocol_Zigbee.receive_len > 0 && BFCT_protocol_Zigbee.receive_len <  BFCT_protocol_Zigbee.receive_data[1] + 8)
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
             {
                 sum = Res + sum;
             }
             BFCT_protocol_Zigbee.receive_len++;
+<<<<<<< HEAD
             if(BFCT_protocol_Zigbee.receive_len > (USART_LEN-1))
               BFCT_protocol_Zigbee.receive_len =(USART_LEN-1);
+=======
+            if(BFCT_protocol_Zigbee.receive_len > 99)
+              BFCT_protocol_Zigbee.receive_len =99;
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 
     }
@@ -519,7 +575,10 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
 ******************/
     else if(1 == BFCT_protocol_Lock.receive_enable)
     {		
+<<<<<<< HEAD
         data3_tc = 0; ////////此为全局变量，需要谨慎使用
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
         if(0 == BFCT_protocol_Lock.receive_len)
         {
             if(0x02 == Res) { 
@@ -529,6 +588,7 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
             {
                 BFCT_protocol_Lock.receive_len = 0;
                 sum = 0;
+<<<<<<< HEAD
                 return ;
             }
         }
@@ -537,10 +597,47 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
           data3_tc = 0; ////////此为全局变量，需要谨慎使用
           if(BFCT_protocol_Lock.receive_len ==  (BFCT_protocol_Lock.receive_data[1]+ (BFCT_protocol_Lock.receive_data[2]<<8)+ 4) )	
           {
+=======
+                BFCT_protocol_Lock.receive_fail =1;
+                return ;
+            }
+        }
+        else if( 1 == BFCT_protocol_Lock.receive_len)
+        {
+            if( Res == 0x02) { 
+			
+		 BFCT_protocol_Lock.receive_len = 0;
+                sum = 0;
+                return ;
+	    }
+
+        }
+/************************
+       // else if(BFCT_protocol.receive_len ==  (BFCT_protocol.receive_data[1] + 2))
+	else if(BFCT_protocol.receive_len ==  (BFCT_protocol.receive_data[1] + 3))
+        {
+            if(sum == Res ) {}
+            else
+            {
+                BFCT_protocol.receive_len = 0;
+                sum = 0;
+                fail_flag = 1;
+                return 0 ;
+            }
+        }
+************************/////  暂时屏蔽
+        //else if(BFCT_protocol.receive_len ==  (BFCT_protocol.receive_data[1] + 3))
+	else if(BFCT_protocol_Lock.receive_len ==  (BFCT_protocol_Lock.receive_data[1]+ (BFCT_protocol_Lock.receive_data[2]<<8)+ 4) )	
+        {
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
             if(0Xff == Res)
             {
               sum = 0;
               BFCT_protocol_Lock.receive_flag = 1;
+<<<<<<< HEAD
+=======
+              BFCT_protocol_Lock.receive_enable = 0; 
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
               BFCT_protocol_Lock.receive_data[BFCT_protocol_Lock.receive_len] = Res;
               BFCT_protocol_Lock.receive_len ++;
               sum = 0;
@@ -554,18 +651,30 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
                 BFCT_protocol_Lock.receive_fail =1;
                 return ;
             }
+<<<<<<< HEAD
           }
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
         }
 
           
             BFCT_protocol_Lock.receive_data[BFCT_protocol_Lock.receive_len] = Res;
+<<<<<<< HEAD
             if(BFCT_protocol_Lock.receive_len > 0 && BFCT_protocol_Lock.receive_len <  USART_LEN)//BFCT_protocol_Lock.receive_data[1] + 8)
+=======
+            if(BFCT_protocol_Lock.receive_len > 0 && BFCT_protocol_Lock.receive_len <  100)//BFCT_protocol_Lock.receive_data[1] + 8)
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
             {
                 sum = Res + sum;
             }
             BFCT_protocol_Lock.receive_len++;
+<<<<<<< HEAD
             if(BFCT_protocol_Lock.receive_len > (USART_LEN-1))
               BFCT_protocol_Lock.receive_len = (USART_LEN-1);
+=======
+            if(BFCT_protocol_Lock.receive_len > 99)
+              BFCT_protocol_Lock.receive_len =99;
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
     }
     else

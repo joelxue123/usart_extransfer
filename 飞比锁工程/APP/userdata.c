@@ -2,6 +2,37 @@
 #include "eeprom.h"
 
 
+<<<<<<< HEAD
+=======
+/**********
+*函数名称：write_userdata2eeprom
+*保存用户数据到EEPROM
+*参数：addr： eeprom中写入的地址 
+* prt : 要写入的数据缓冲区
+*len :要写入的长度
+*返回： 无
+***********/
+
+void write_userdata2eeprom(u16 addr, u8 *ptr, u8 len)
+{
+  EEPROM_multbyte_write(addr , ptr,len);
+}
+
+
+/**********
+*函数名称:read_userdata4eeprom
+*从EEPROM读取用户信息到ptr
+*参数：addr： eeprom中读入的地址 
+* prt : 要读出的数据缓冲区
+*len :要读出的长度
+*返回：无
+***********/
+
+void read_userdata4eeprom(u16 addr, u8 *ptr, u8 len)
+{
+  EEPROM_multbyte_read(addr,ptr, len);
+}
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 
 /****1个字节BCD码转HEX *********/
@@ -15,14 +46,22 @@ u8 u8_BCD_2_hex(u8 data)
 
 unsigned char u16_BCD_2_hex(short data)
 {
+<<<<<<< HEAD
   return ( u8_BCD_2_hex(data & 0x00ff)*100 +u8_BCD_2_hex( (data>>8) & 0x00ff));
+=======
+  return ( u8_BCD_2_hex(data & 0x00ff) +u8_BCD_2_hex( (data>>8) & 0x00ff) *100);
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 }
 
 /****1个字节HEX码转BCD *********/
 
 u16 u8_HEX_2_BCD(u8 data)
 {
+<<<<<<< HEAD
   return ( (data / 100) + ( ((((data %100) /10) <<4) + (data %10) ) << 8 ) );
+=======
+  return ( ((data / 100) << 8) + ( ((data %100) /10) <<4) + (data %10) );
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 }
 
 
@@ -49,12 +88,17 @@ void lockdata_2_zigbeedata( u8 lockdata_type,u8 *lockdata,u8 *zigbeedata)
     
   case lock_user_attribute:
     
+<<<<<<< HEAD
       if(*lockdata & 0x80)
+=======
+      if(*lockdata & 0x01)
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
        *zigbeedata = 0X01; //普通用户
       else
        *zigbeedata = 0X00; //管理员属性
     
     break;
+<<<<<<< HEAD
   case lock_keytype:
       
     break;
@@ -78,6 +122,8 @@ void lockdata_2_zigbeedata( u8 lockdata_type,u8 *lockdata,u8 *zigbeedata)
         *zigbeedata = 1;
     break;
     
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
   case 100:
     break;
     
@@ -100,6 +146,7 @@ void zigbeedata_2_lockdata(u8 zigbeedata_type,u8 *lockdata,u8 *zigbeedata)
       temp = u8_HEX_2_BCD(*zigbeedata);
       *((u16*)lockdata) =temp;
     break;
+<<<<<<< HEAD
   case zigbee_user_attribute:
       *lockdata = *lockdata &0xfe;
       if(*zigbeedata == 0X01)
@@ -111,6 +158,15 @@ void zigbeedata_2_lockdata(u8 zigbeedata_type,u8 *lockdata,u8 *zigbeedata)
     break;
   default:
     break;
+=======
+    case 
+      
+    
+    
+  default:
+    break;
+    
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
   }
 }
 

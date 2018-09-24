@@ -42,6 +42,7 @@
 #define lock_clock_addr            (0x1034) //锁内时间地址
 #define lock_clock_len                  (7) //锁内时间长度
 #define lock_battery_level_addr        (0x103b) //电池1电量百分比
+<<<<<<< HEAD
 #define lock_battery1_len                  (1) //电池1电量百分比
 #define lock_battery_leve2_addr        (0x103c) //电池2电量百分比
 #define lock_battery2_len                  (1) //电池2电量百分比
@@ -52,6 +53,14 @@
 //*********临时用户的编号**********/
 #define casual_work_addr      (0x1040) //开关状态的地址
 
+=======
+#define lock_battery_len                  (1) //电池1电量百分比
+#define lock_battery_level_addr        (0x103c) //电池2电量百分比
+#define lock_battery_len                  (1) //电池2电量百分比
+#define lock_switch_state_addr      (0x103d) //开关状态的地址                                                                                                                    
+#define lock_switch_state_len            (2) //开关状态的地址   
+
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 /*** zigbee用户数据的各个地址 *******/
 #define zigbee_clock_addr (0x1080)
 #define zigbee_clock_len (6)
@@ -81,12 +90,16 @@ enum {
  lock_user_No =0 ,
  lock_username =1,
  lock_user_attribute =2,
+<<<<<<< HEAD
  lock_keytype =3,
  lock_password=4,
  lcok_power_level_state =5,
  lock_square_tongue_locked_state = 6,
  lock_anti_lock_state =7,
  lock_motor_state = 8
+=======
+
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 
 };
@@ -98,7 +111,10 @@ enum {
  zigbee_username =1,
  zigbee_user_attribute =2,
  zigbee_clock =3,
+<<<<<<< HEAD
  zigbee_password = 4
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
  
 
 };
@@ -113,11 +129,16 @@ enum {
 /******库函数**********/
 void write_userdata2eeprom(u16 addr, u8 *ptr, u8 len);
 void read_userdata4eeprom(u16 addr, u8 *ptr, u8 len);
+<<<<<<< HEAD
 u8 u8_BCD_2_hex(u8 data);
 unsigned char u16_BCD_2_hex(short data);
 u16 u8_HEX_2_BCD(u8 data);
 void lockdata_2_zigbeedata( u8 lockdata_type,u8 *lockdata,u8 *zigbeedata);
 void zigbeedata_2_lockdata(u8 zigbeedata_type,u8 *lockdata,u8 *zigbeedata);
+=======
+
+
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 
 #endif 

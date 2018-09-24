@@ -5,7 +5,10 @@
 #define ON 1
 #define OFF 0
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 #define Wakeup_OUT_PORT GPIOB  
 #define Wakeup_OUT_PIN  GPIO_Pin_0
 
@@ -15,7 +18,10 @@
 #define TX_REMAP_PORT GPIOA 
 #define TX_REMAP_PIN GPIO_Pin_2
 
+<<<<<<< HEAD
 #define DEBUG 0
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 extern u8 G_receive_data[];
 extern u8 G_send_data[];
@@ -35,16 +41,23 @@ typedef struct
 
 
 
+<<<<<<< HEAD
 /*********接收数组的长度***************/
 #define USART_LEN 200
 
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 /* 保存全局变量的地址，eeprom*/
 #define battery_percent_addr  0x1000   
 
 
 extern BFCT_protocol BFCT_protocol_Lock;
+<<<<<<< HEAD
 extern BFCT_protocol BFCT_protocol_Zigbee;
+=======
+
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 #define SUCCESS  0x00
 #define FAIL     0xff
@@ -63,7 +76,10 @@ extern BFCT_protocol BFCT_protocol_Zigbee;
 /******Zigbee协议错误标准 ***********/
 #define sum_check_BIT       0X01
 #define NACK_BIT           0x02
+<<<<<<< HEAD
 #define TIMEOUT_BIT        0x08 
+=======
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 /******Zigbee协议错误标准 ***********/
 
 extern u8 lock_interrupt;
@@ -75,11 +91,16 @@ extern u8 Lock_process_done;
 extern u8 Zigbee_processing_flag ;
 extern u8 Lock_processing_flag ;
 
+<<<<<<< HEAD
 extern u8 lock_erro;
 extern u8 zigbee_erro;
 
 extern u8 t_1ms;
 extern u16 data3_tc;
+=======
+extern u8 t_1ms;
+
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 #endif
 
 

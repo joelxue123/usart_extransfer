@@ -45,6 +45,7 @@ void EEPROM_multbyte_read(u32 start_address , u8 *data,u8 len)
 }
 
 
+<<<<<<< HEAD
 /**********
 *函数名称：write_userdata2eeprom
 *保存用户数据到EEPROM
@@ -73,3 +74,18 @@ void read_userdata4eeprom(u16 addr, u8 *ptr, u8 len)
 {
   EEPROM_multbyte_read(addr,ptr, len);
 }
+=======
+
+
+
+
+
+
+
+
+#if 0   /* 测试代码*/
+
+  EEPROM_multbyte_write(0x1000,"12234",5);
+    EEPROM_multbyte_read(0x1000,data_buf,5);
+#endif  
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e

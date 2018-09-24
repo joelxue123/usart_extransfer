@@ -2,6 +2,25 @@
 #include "global.h"
 #include "eeprom.h"
 
+<<<<<<< HEAD
+=======
+/***********
+** 函数名称：wake_up_in()
+**功能描述：唤醒模块函数
+**入口参数 ：cmd 
+SET,为高电平
+RESET为低电平
+**返回值 
+***********/
+void wake_up_in(u8 cmd)
+{
+  if(cmd ==SET)
+   GPIO_WriteBit(GPIOC , GPIO_Pin_4 ,SET);  //设置PB0为高电平，唤醒模块
+  else
+    GPIO_WriteBit(GPIOC , GPIO_Pin_4 ,RESET);  //设置PB0为高电平，唤醒模块
+}
+
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 
 /**********************
 ** 函数描述: 串口初始化
@@ -58,6 +77,7 @@ void UART1_RemapInit(unsigned int baudrate)
 ** 函数描述: 串口发送数据
 **参数， char *p 发送的数组, u8 len 发送的字节数
 **********************/
+<<<<<<< HEAD
 void send_hex(u8 *p,u8 len)
 {
   u8 i;
@@ -66,4 +86,14 @@ void send_hex(u8 *p,u8 len)
     USART_SendData8(USART1 , (u8)p[i]);             //向发送寄存器写入数据     
   }
   while( (USART1->SR & (uint8_t)USART_FLAG_TXE) == 0);   //等待数据发送完成
+=======
+void send_hex(char *p,u8 len)
+{
+  u8 i;
+  for(i=0;i<len;i++){
+    while(USART_GetFlagStatus(USART1 , USART_FLAG_TXE) == 0);       
+    USART_SendData8(USART1 , (u8)p[i]);             //向发送寄存器写入数据     
+  }
+  while(USART_GetFlagStatus(USART1 , USART_FLAG_TXE) == 0);   //等待数据发送完成
+>>>>>>> e22c336f0c9dd1b56581e59a67f0d47c2ac06c3e
 }
